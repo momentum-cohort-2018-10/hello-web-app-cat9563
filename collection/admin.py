@@ -1,13 +1,13 @@
 from django.contrib import admin
-from collection.models import Cats
+from collection.models import Cat
 # Register your models here.
-admin.site.register(Cats)
+admin.site.register(Cat)
 
 #set up automated slug creation 
-class CatsAdmin(admin.ModelAdmin):
-    model = Cats
+class CatAdmin(admin.ModelAdmin):
+    model = Cat
     list_display = ('name', 'description',)
     prepopulated_fields = {'slug': ('name',)}
 
-admin.site.unregister(Cats)
-admin.site.register(Cats, CatsAdmin)
+admin.site.unregister(Cat)
+admin.site.register(Cat, CatAdmin)

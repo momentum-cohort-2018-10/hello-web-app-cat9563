@@ -7,11 +7,12 @@
                 My Hello Web App Project
             {% endblock title%}
         </title>
+        {% comment %} <link rel="stylesheet" href="{% static "css/tachyons.min.css" %}"> {% endcomment %}
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
         {% block header %}{% endblock header %}
     </head>
-    <body>
-        <header>
+     <body class="sans-serif">
+        <header class="pv3 bg-shelter-blue white bb bw2 b--washed-green">
             <h1>Kitty Collector</h1>
             <nav>
                 <li><a href="{% url 'home' %}">Home</a></li>

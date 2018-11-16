@@ -18,6 +18,22 @@
                 <div class='links'>
                     <div class='about'><a href="{% url 'about' %}">About</a></div>
                     <div class='contact'><a href="{% url 'contact' %}">Contact</a></div>
+                    <div class='login'>
+                        <ul>
+                            {% if user.is_authenticated %}
+                            <li>
+                                <a href="{% url 'auth_logout' %}">Logout</a>
+                            </li>
+                            {% else %}
+                            <li>
+                                <a href="{% url 'auth_login' %}">Login</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'registration_register' %}">Register</a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

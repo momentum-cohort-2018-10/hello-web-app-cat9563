@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from collection.forms import CatForm
 from collection.models import Cat 
 
 def index(request):
@@ -7,12 +8,23 @@ def index(request):
         'cats': cats,
     })
 
-# Right now it’s essentially saying: “When the index page is viewed, display this template and pass along these two variables.”
+def cat_detail(request, slug):
+    cat = Cat.objects.get(slug=slug)
+    return render(request, 'cats/cat_detail.html', {
+        'cat': cat,
+    })
 
-# def index(request):
-#     number = 6
-#     critter = "Yoshi bean"
-#     return render(request, 'index.html',{
-#         'number': number, 
-#         'critter': critter,
-#     })
+def edit_cat(request, slug):
+    cat = Cat.objects.get(slug=slug)
+    form_class = CatForm
+    if request.method == 'POST':
+        form = form_class(data=request.POST, instance=cat)
+        if form.is_valid():
+            form.save()
+            return redirect('cat_detail', slug=cat.slug)
+    else:
+        form = form_class(instance=cat)
+    return render(request, 'cats/edit_cat.html', {
+        'cat': cat,
+        'form': form,
+        })

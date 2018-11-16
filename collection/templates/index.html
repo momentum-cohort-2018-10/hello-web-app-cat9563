@@ -1,13 +1,14 @@
 {% extends 'base.html' %} 
-{% load humanize %}
 {% block title %}
     Homepage - {{ block.super }} 
 {% endblock title %}
 
 {% block content %}
-    {% for cats in cats %}
-    <h2>{{ cats.name }}</h2>
-    <p>{{ cats.description }}</p>
+    {% for cat in cats %}
+    <h2><a href="{% url 'cat_detail' slug=cat.slug %}">
+        {{ cat.name }}
+        </a></h2>
+        <p>{{ cat.desciption }}</p>
     {% endfor %} 
 {% endblock content %}
 

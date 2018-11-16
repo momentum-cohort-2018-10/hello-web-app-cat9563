@@ -1,0 +1,13 @@
+{% extends 'base.html' %} 
+
+{% block title %}
+    {{ cat.name }} - {{ block.super }} 
+{% endblock title %}
+
+{% block content %}
+    <h1>{{ cat.name }}</h1>
+    <p>{{ cat.description }}</p>
+    <a href="{% url 'edit_cat' slug=cat.slug %}">
+        Edit me!
+    </a>
+{% endblock content %}

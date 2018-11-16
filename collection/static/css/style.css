@@ -1,12 +1,43 @@
-header{
-    width: 100;
-    background-color: rgb(68, 219, 169);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-body{
+
+.menu-container {
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    background-color: turquoise;
+    padding: 40px 0;
+  }
+  
+.menu {
+    /* border: 1px solid #fff;   */
+    font-size: 18px;
+    width:  100%;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.links{
+    /* border: 1px solid #fff;  For debugging */
+    display: flex;
+    justify-content: flex-end;
+}
+
+.contact{
+    margin-left: 20px;
+}
+
+ body{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 24px;
     background-color: rgb(190, 24, 107);
 }
-nav{
+
+/* nav{
     text-emphasis: left;
-}
+}  */

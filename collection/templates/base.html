@@ -1,26 +1,27 @@
 {% load staticfiles %}
 <!doctype html>
-<html>
+<html lang='en'>
     <head>
+        <meta charset='UTF-8'/>
         <title>
             {% block title %}
                 My Hello Web App Project
             {% endblock title%}
         </title>
-        {% comment %} <link rel="stylesheet" href="{% static "css/tachyons.min.css" %}"> {% endcomment %}
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
         {% block header %}{% endblock header %}
     </head>
-     <body class="sans-serif">
-        <header class="pv3 bg-shelter-blue white bb bw2 b--washed-green">
-            <h1>Kitty Collector</h1>
-            <nav>
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'about' %}">About</a></li>
-                <li><a href="{% url 'contact' %}">Contact</a></li>
-            </nav>
-        </header>
+     <body>
+        <div class='menu-container'>
+            <div class='menu'>
+                <div class='home'><a href="{% url 'home' %}">Home</a></div>
+                <div class='links'>
+                    <div class='about'><a href="{% url 'about' %}">About</a></div>
+                    <div class='contact'><a href="{% url 'contact' %}">Contact</a></div>
+                </div>
+            </div>
+        </div>
         {% block content %}{%endblock content%}
         {% block footer %}{% endblock footer%}
-   </body>
+    </body>
 </html>

@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include 
 from django.views.generic import TemplateView
 from collection import views
+from collection.backends import MyRegistrationView
 from django.contrib.auth.views import ( 
 	PasswordResetView, PasswordResetDoneView, 
 	PasswordResetConfirmView, PasswordResetCompleteView, 
@@ -49,6 +50,10 @@ urlpatterns = [
         name="password_reset_complete"),
     path('accounts/', include('registration.backends.simple.urls')),
     path('admin/', admin.site.urls),
+    path('accounts/register/', MyRegistrationView.as_view(), 
+        name='registration_register'),
+    path('accounts/create_cat/', views.create_cat, 
+        name='registration_create_cat'),
 ]
 # urlpatterns = [
 #     path('accounts/password/reset/', 

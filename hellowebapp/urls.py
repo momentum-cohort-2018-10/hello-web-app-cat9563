@@ -48,12 +48,12 @@ urlpatterns = [
     path('accounts/password/done/', 
         PasswordResetCompleteView.as_view(template_name='registration/password_reset_complete.html'),
         name="password_reset_complete"),
+    path('accounts/register/', 
+        MyRegistrationView.as_view(), name='registration_register'),
+    path('accounts/create_cat/', 
+        views.create_cat, name='registration_create_cat'),
     path('accounts/', include('registration.backends.simple.urls')),
     path('admin/', admin.site.urls),
-    path('accounts/register/', MyRegistrationView.as_view(), 
-        name='registration_register'),
-    path('accounts/create_cat/', views.create_cat, 
-        name='registration_create_cat'),
 ]
 # urlpatterns = [
 #     path('accounts/password/reset/', 

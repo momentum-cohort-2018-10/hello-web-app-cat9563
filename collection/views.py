@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
 from collection.forms import CatForm
 from collection.models import Cat
-from django.template.defaultfilters import slugify 
+from django.template.defaultfilters import slugify
+from django.contrib.auth.decorators import login_required 
+from django.http import Http404
 
 def index(request):
     cats = Cat.objects.all()
@@ -15,19 +17,22 @@ def cat_detail(request, slug):
         'cat': cat,
     })
 
+@login_required
 def edit_cat(request, slug):
     cat = Cat.objects.get(slug=slug)
+    if cat.user != request.user:
+        raise Http404
     form_class = CatForm
     if request.method == 'POST':
         form = form_class(data=request.POST, instance=cat)
         if form.is_valid():
             form.save()
             return redirect('cat_detail', slug=cat.slug)
-    else:
-        form = form_class(instance=cat)
-    return render(request, 'cats/edit_cat.html', {
-        'cat': cat,
-        'form': form,
+        else:
+            form = form_class(instance=cat)
+        return render(request, 'cats/edit_cat.html', {
+            'cat': cat,
+            'form': form,
         })
 
 def create_cat(request):
@@ -39,7 +44,7 @@ def create_cat(request):
             cat.user = request.user
             cat.slug = slugify(cat.name)
             cat.save()
-            return redirect('cat_detal', slug=cat.slug)
+            return redirect('cat_detail', slug=cat.slug)
     else:
         form = form_class()
     return render(request, 'cats/create_cat.html', {

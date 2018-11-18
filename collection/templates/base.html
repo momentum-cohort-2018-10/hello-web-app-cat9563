@@ -12,7 +12,29 @@
         {% block header %}{% endblock header %}
     </head>
      <body>
-        <div class='menu-container'>
+        </div class='header-container'>
+            <div class='header'>
+                <div class='browse'><a href="{% url 'browse' %}">Browse</a></div>
+                <div class='logo'>
+                    <div class="cat">
+                        <div class="ear ear--left"></div>
+                        <div class="ear ear--right"></div>
+                        <div class="face">
+                            <div class="eye eye--left">
+                                <div class="eye-pupil"></div>
+                            </div>
+                            <div class="eye eye--right">
+                                <div class="eye-pupil"></div>
+                            </div>
+                            <div class="muzzle"></div>
+                        </div>
+                    </div>
+                </div> 
+                <div class='favcats'><a href="{#}">My_Favorites</a></div>
+                {% comment %} static/images/sample_cats/pop_tart_cat.jpg {% endcomment %}
+            </div>
+        </div> 
+         <div class='menu-container'>
             <div class='menu'>
                 <div class='home'><a href="{% url 'home' %}">Home</a></div>
                 <div class='links'>
@@ -37,28 +59,6 @@
                 </div>
             </div>
         </div>
-        </div class='header-container'>
-            <div class='header'>
-                <div class='browse'><a href="{% url 'browse' %}">Browse</a></div>
-                <div class='logo'>
-                    <div class="cat">
-                        <div class="ear ear--left"></div>
-                        <div class="ear ear--right"></div>
-                        <div class="face">
-                            <div class="eye eye--left">
-                                <div class="eye-pupil"></div>
-                            </div>
-                            <div class="eye eye--right">
-                                <div class="eye-pupil"></div>
-                            </div>
-                            <div class="muzzle"></div>
-                        </div>
-                    </div>
-                </div> 
-                <div class='favcats'><a href="{#}">My_Favorites</a></div>
-                {% comment %} static/images/sample_cats/pop_tart_cat.jpg {% endcomment %}
-            </div>
-        </div> 
         {% block content %}{%endblock content%}
         {% block footer %}{% endblock footer%}
     </body>

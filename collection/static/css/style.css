@@ -324,19 +324,8 @@
     border-radius: 50% 50% 50% 50% / 30% 30% 70% 70%;
   }
   
-  /* General page styling
-  html {
-    /* height: 100%; */
-    /* display: flex; */
-    /* align-items: center;
-    justify-content: center; */
-  /* } */
-  
-
-/* body{
-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-font-size: 24px;
-background-color: rgb(190, 24, 107);
+/* .body{
+    background-color: hotpink;
 } */
 
 /* nav{

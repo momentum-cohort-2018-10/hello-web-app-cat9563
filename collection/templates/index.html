@@ -5,7 +5,7 @@
 
 {% block content %}
     {% for cat in cats %}
-    <h2><a href="{% url 'cat_detail' slug=cat.slug %}">
+    <h2><a class="button is-large" <a href="{% url 'cat_detail' slug=cat.slug %}">
         {{ cat.name }}
         </a></h2>
         <p>{{ cat.desciption }}</p>

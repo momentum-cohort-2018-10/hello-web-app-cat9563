@@ -3,11 +3,14 @@
 <html lang='en'>
     <head>
         <meta charset='UTF-8'/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>
             {% block title %}
                 My Hello Web App Project
             {% endblock title%}
         </title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+        <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
         {% block header %}{% endblock header %}
     </head>
@@ -35,11 +38,11 @@
         </div> 
          <div class='menu-container'>
             <div class='menu'>
-                <div class='home'><a href="{% url 'home' %}">Home</a></div>
+                <div class='home'><a class="button is-large" <a href="{% url 'home' %}">Home</a></div>
                 <div class='links'>
-                    <div class='about'><a href="{% url 'about' %}">About</a></div>
-                    <div class='contact'><a href="{% url 'contact' %}">Contact</a></div>
-                    <div class='browse'><a href="{% url 'browse' %}">Browse</a></div>
+                    <div class='about'><a class="button is-large" <a href="{% url 'about' %}">About</a></div>
+                    <div class='contact'><a class="button is-large" <a href="{% url 'contact' %}">Contact</a></div>
+                    <div class='browse'><a class="button is-large" <a href="{% url 'browse' %}">Browse</a></div>
                     <div class='login'>
                         <ul>
                             {% if user.is_authenticated %}

@@ -84,3 +84,15 @@ def create_cat(request):
     return render(request, 'cats/create_cat.html', {
             'form': form,
     })
+
+def browse_by_name(request, initial=None):
+    if initial:
+        cats = Cat.objects.filter(
+             name__istartswith=initial).order_by('name')
+    else:
+        cats = Cat.objects.all().order_by('name')
+
+    return render(request, 'search/search.html', {
+        'cats': cats,
+        'initial': initial,
+    })

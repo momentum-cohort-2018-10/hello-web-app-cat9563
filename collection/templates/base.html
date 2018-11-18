@@ -14,7 +14,6 @@
      <body>
         </div class='header-container'>
             <div class='header'>
-                <div class='browse'><a href="{% url 'browse' %}">Browse</a></div>
                 <div class='logo'>
                     <div class="cat">
                         <div class="ear ear--left"></div>
@@ -29,8 +28,8 @@
                             <div class="muzzle"></div>
                         </div>
                     </div>
+                    <div class='title'><h1>Kitty Collector</h1></div>
                 </div> 
-                <div class='favcats'><a href="{#}">My_Favorites</a></div>
                 {% comment %} static/images/sample_cats/pop_tart_cat.jpg {% endcomment %}
             </div>
         </div> 
@@ -40,6 +39,7 @@
                 <div class='links'>
                     <div class='about'><a href="{% url 'about' %}">About</a></div>
                     <div class='contact'><a href="{% url 'contact' %}">Contact</a></div>
+                    <div class='browse'><a href="{% url 'browse' %}">Browse</a></div>
                     <div class='login'>
                         <ul>
                             {% if user.is_authenticated %}

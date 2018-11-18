@@ -50,25 +50,6 @@ def edit_cat(request, slug):
         'form': form,
     })
 
-# @login_required
-# def edit_cat(request, slug):
-#     cat = Cat.objects.get(slug=slug)
-#     if cat.user != request.user:
-#         raise Http404
-#     form_class = CatForm
-#     if request.method == 'POST':
-#         form = form_class(data=request.POST, instance=cat)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('cat_detail', slug=cat.slug)
-#         else:
-#             form = form_class(instance=cat)
-
-#         return render(request, 'cats/edit_cat.html', {
-#             'cat': cat,
-#             'form': form,
-#         })
-
 def create_cat(request):
     form_class = CatForm
     if request.method == 'POST':

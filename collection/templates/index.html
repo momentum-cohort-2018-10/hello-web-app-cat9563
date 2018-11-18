@@ -11,23 +11,3 @@
         <p>{{ cat.desciption }}</p>
     {% endfor %} 
 {% endblock content %}
-
-<!-- {% load staticfiles %}
-<!doctype html>
-<html>
-    <head>
-        <title>My Hello Web App Project</title>
-        <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-    </head>
-<body>
-    <h1>Hello World!</h1>
-    <p>I am a basic website.</p>
-</body>
-</html> -->
-{% comment %} <p>There are {{ number }} walrus{{ number|pluralize:"es" }}!</p>
-    <p>There are {{ number|apnumber}} dogs!</p>
-    <p>There are six cats! <b>
-    <p>I am a basic website.</p>
-    <p>This is my cats name: {{ cats|slugify }}</p>
-    <p>He has a book called , {{ cats|title }}</p>
-    <p>hmm {{ cats|truncatewords:1 }} meh</p> {% endcomment %}
